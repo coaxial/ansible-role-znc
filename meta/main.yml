@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: Coaxial
+  description: Install and configure [ZNC](https://znc.in), an advanced IRC bouncer.
+  company: 64b.it
+  license: MIT
+  min_ansible_version: 2.6
+  platforms:
+    - name: ubuntu
+      versions:
+        - trusty
+        - xenial
+        - bionic
+        - cosmic
+        - jessie
+        - stretch
+        - buster
+        - sid
+  galaxy_tags:
+    - irc
+    - znc
+    - bnc
+    - bouncer
+
+  dependencies: []
