@@ -1,1 +1,6 @@
 ---
+- name: Restart ZNC
+  service:
+    name: znc
+    enabled: true
+    state: restarted
