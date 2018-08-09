@@ -1,1 +1,45 @@
 ---
+- name: Install ZNC
+  package:
+    name: znc
+    state: present
+
+- name: Create ZNC user
+  user:
+    name: znc
+    system: true
+
+- name: Create service unit
+  copy:
+    src: files/znc.service
+    dest: /etc/systemd/system/znc.service
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Make ZNC config dir
+  file:
+    path: /var/lib/znc/configs
+    state: directory
+    owner: znc
+    group: znc
+    mode: 0755
+
+- name: Create ZNC SSL certificate
+  become: true
+  become_user: znc
+  # Debian doesn't have sudo installed by default
+  become_method: su
+  command: /usr/bin/znc --makepem --datadir /var/lib/znc
+  args:
+    creates: /var/lib/znc/znc.pem
+
+- name: Configure ZNC
+  template:
+    src: templates/znc.conf.j2
+    dest: /var/lib/znc/configs/znc.conf
+    owner: znc
+    group: znc
+    mode: 0600
+  notify:
+    - Restart ZNC

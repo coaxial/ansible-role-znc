@@ -1,5 +1,11 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    znc__admin_username: admin
+    znc__admin_password: secret
+    znc__admin_nick: lala
+    znc__admin_realname: nimda
+    znc__admin_salt: "}T-GmTGu/ck`2B6Pu$g["
   roles:
     - name: ansible-role-znc
