@@ -12,7 +12,8 @@ galaxy_info:
         - xenial
         - bionic
         - cosmic
-        - jessie
+    - name: debian
+      versions:
         - stretch
         - buster
         - sid
