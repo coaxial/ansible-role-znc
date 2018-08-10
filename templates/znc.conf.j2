@@ -10,6 +10,7 @@ Version = 1.6.6
         SSL = true
 </Listener>
 LoadModule = webadmin
+LoadModule = sasl
 
 <User {{ znc__admin_username }}>
         Pass = sha256#{{ (znc__admin_password + znc__admin_salt) | hash('sha256') }}#{{ znc__admin_salt }}#
