@@ -25,7 +25,11 @@ Adding more users
 
 To add more users beyond the admin user, either use a `blockinfile` in a playbook, or do it as the admin user through the webadmin/by issuing commands over IRC.
 
-There are too many specifics for configuring users, it would be convoluted and cumbersome to handle that in this role in my opinion.
+The file to edit is located at `/var/lib/znc/configs/znc.conf`.
+
+Official documentation to the User configuration: https://wiki.znc.in/Configuration#User
+
+There are too many specifics for configuring users, it would be convoluted and cumbersome to handle every possibility in this role without being very opinionated.
 
 Example Playbook
 ----------------
