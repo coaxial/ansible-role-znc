@@ -20,6 +20,17 @@ Name | Default | Possible values | Description
 `znc__admin_realname` | unset, mandatory | Any string | What to show as the Real Name on IRC
 `znc__admin_salt` | unset, mandatory | A random 20 chars string | What to salt the password with, `pwgen -sy 20` generates such a string from the command line
 
+Adding more users
+-----------------
+
+To add more users beyond the admin user, either use a `blockinfile` in a playbook, or do it as the admin user through the webadmin/by issuing commands over IRC.
+
+The file to edit is located at `/var/lib/znc/configs/znc.conf`.
+
+Official documentation to the User configuration: https://wiki.znc.in/Configuration#User
+
+There are too many specifics for configuring users, it would be convoluted and cumbersome to handle every possibility in this role without being very opinionated.
+
 Example Playbook
 ----------------
 
