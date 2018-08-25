@@ -39,3 +39,12 @@ def test_znc_started(host):
 
     assert s.is_running
     assert s.is_enabled
+
+
+def test_ssl_cert(host):
+    f = host.file('/var/lib/znc/znc.pem')
+
+    assert f.exists
+    assert f.group == 'znc'
+    assert f.user == 'znc'
+    assert f.mode == 0o600

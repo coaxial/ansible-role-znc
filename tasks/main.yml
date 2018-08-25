@@ -26,13 +26,16 @@
     mode: 0755
 
 - name: Create ZNC SSL certificate
-  become: true
-  become_user: znc
-  # Debian doesn't have sudo installed by default
-  become_method: su
   command: /usr/bin/znc --makepem --datadir /var/lib/znc
   args:
     creates: /var/lib/znc/znc.pem
+
+- name: Fix permissions on ZNC SSL certificate
+  file:
+    path: /var/lib/znc/znc.pem
+    owner: znc
+    group: znc
+    mode: 0o600
 
 - name: Configure ZNC
   template:
