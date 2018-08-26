@@ -9,7 +9,9 @@ Version = 1.6.6
         IPv6 = {{ znc__ipv6 }}
         SSL = true
 </Listener>
+
 LoadModule = webadmin
+LoadModule = certauth
 
 <User {{ znc__admin_username }}>
         Pass = sha256#{{ (znc__admin_password + znc__admin_salt) | hash('sha256') }}#{{ znc__admin_salt }}#
@@ -20,5 +22,4 @@ LoadModule = webadmin
         RealName = {{ znc__admin_realname }}
         LoadModule = chansaver
         LoadModule = controlpanel
-        LoadModule = sasl
 </User>
